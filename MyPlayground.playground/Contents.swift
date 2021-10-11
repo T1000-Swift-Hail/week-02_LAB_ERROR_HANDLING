@@ -7,8 +7,8 @@ enum QuantityError : Error {
 }
 
 func placeOrderWatch(order: Int)throws->String{
-    if (order > 5 )  {throw QuantityError.bigOrder}
-    else if (order < 2 ) {throw QuantityError.lowOrder }
+    guard(order < 6 ) else {throw QuantityError.bigOrder}
+    guard(order > 2 ) else {throw QuantityError.lowOrder }
     
     
     return ""
@@ -18,7 +18,7 @@ func placeOrderWatch(order: Int)throws->String{
 
 
 do {
-    let orderCom = try placeOrderWatch(order: 1)
+    let orderCom = try placeOrderWatch(order:1)
     
    print("Your order is confirmed\(orderCom)")
 }
