@@ -2,7 +2,7 @@
 
 ## You are developing a shop that sells watches . This shop only accepts orders if they are at least 2 items and no more than 5 orders.
 
-### Using what you learned in Error handling, make sure the orders are 2 items or more and less than 6.  Follow those steps :
+### Using what you learned in Error handling, make sure the orders are 2 items or more and no more than 5.  Follow those steps :
 
 - Create an enum QuantityError that conforms to the Swift Error protocole 
 - Create a function placeOrderWatch that takes count: Int as a parameter , and return a String . It  throws erorrs
