@@ -6,28 +6,40 @@ enum QuantityError: Error {
 }
 
 func PlaceOrderWatch (Count: Int) throws -> String {
-    let LowestWatchWeHave = 2
-    let BigWatchWeHave = 5
-    
-    if Count > BigWatchWeHave {
-        throw QuantityError.bigOrder
-    }
 
-    else if Count < LowestWatchWeHave {
-        throw QuantityError.lowOrder
-    }
+ 
+    guard (Count <= 5)  else {
+        throw QuantityError.bigOrder
         
-     return "Your order is confirmed"
+    }
+    guard (Count >= 2) else{
+        throw QuantityError.lowOrder
+        
+    }
+    return "Your order is confirmed"
+    
+    
+ 
+//
+//    if Count > BigWatchWeHave {
+//        throw QuantityError.bigOrder
+//    }
+//
+//    else if Count < LowestWatchWeHave {
+//        throw QuantityError.lowOrder
+//    }
+//
+     
 }
 
 do {
-    let Quantity = try  PlaceOrderWatch(Count: 5)
+    let Quantity = try  PlaceOrderWatch(Count: 1)
     print(Quantity)
     }
     catch QuantityError.bigOrder {
-        print("We can't sell more than 5 watches")
+        print("order Too many, you must order 5 watches or less")
     } catch QuantityError.lowOrder {
-        print("We can't sell less than 2 watches")
+        print("order is low, you must order 2 wtaches or more")
     } catch {
         print("An unknown error occurred: \(error)")
     }
