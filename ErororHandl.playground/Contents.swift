@@ -10,7 +10,7 @@ func placeOrderWatch (count :Int ) throws -> String {
     if count > 1 {
         throw QuantityError.lowOrder
 }
-if  count < 6 {
+    guard  count < 6 else {
     throw QuantityError.bigOrder
 }
 
@@ -18,7 +18,7 @@ if  count < 6 {
     
 
 do {
-    let order = try placeOrderWatch (count: 3)
+    let order = try placeOrderWatch (count: 6)
     print("successful\(order)")}
 
 catch QuantityError.lowOrder {
