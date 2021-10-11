@@ -9,19 +9,25 @@ func placeOrderWatch(count: Int) throws -> String {
     let biggestOrder: Int = 5
     let lowestOrder: Int = 2
     
-    if count > biggestOrder {
-        throw QuantityError.bigOrder
-    }
-    else if count < lowestOrder {
+   // if count > biggestOrder {
+      //  throw QuantityError.bigOrder
+  //  }
+   // else if count < lowestOrder {
+     //   throw QuantityError.lowOrder
+        
+        
+   // }
+    guard count >= lowestOrder else {
         throw QuantityError.lowOrder
-        
-        
+    }
+    guard count <= biggestOrder else {
+        throw QuantityError.bigOrder
     }
 return "Your order is confirmed"
 }
 
 do {
-    let order = try placeOrderWatch(count: 2)
+    let order = try placeOrderWatch(count: 1)
     print(order)
     
 }
